@@ -1201,7 +1201,7 @@ html&gt;body{padding:0}&lt;/style&gt;
   @media (min-width: 761px) {
     #horizon-team-wayfinder-v2 .hw2-rotation {
       box-sizing: border-box;
-      height: 13.25rem;
+      height: 14rem;
     }
 
     #horizon-team-wayfinder-v2 .hw2-event-grid,
@@ -1215,6 +1215,13 @@ html&gt;body{padding:0}&lt;/style&gt;
   #horizon-team-wayfinder-v2 .hw2-slot-field {
     display: grid;
     gap: .1rem;
+  }
+
+  #horizon-team-wayfinder-v2 .hw2-slot-field-station {
+    display: flex;
+    align-items: baseline;
+    gap: .55rem;
+    white-space: nowrap;
   }
 
   #horizon-team-wayfinder-v2 .hw2-field-label {
@@ -1446,7 +1453,7 @@ html&gt;body{padding:0}&lt;/style&gt;
               &lt;span class=&quot;hw2-field-value-event&quot;&gt;${slot.event}&lt;/span&gt;
             &lt;/div&gt;
             ${slot.station !== undefined ? `
-              &lt;div class=&quot;hw2-slot-field&quot;&gt;
+              &lt;div class=&quot;hw2-slot-field hw2-slot-field-station&quot;&gt;
                 &lt;span class=&quot;hw2-field-label&quot;&gt;STATION&lt;/span&gt;
                 &lt;span&gt;${slot.station}&lt;/span&gt;
               &lt;/div&gt;
@@ -1477,9 +1484,9 @@ html&gt;body{padding:0}&lt;/style&gt;
         `;
         if (blockIndex === 1) {
           return `${rotation}
-            &lt;div class=&quot;hw2-break&quot; aria-label=&quot;Lunch and summit sessions break&quot;&gt;
+            &lt;div class=&quot;hw2-break&quot; aria-label=&quot;Summit sessions break&quot;&gt;
               &lt;div&gt;&lt;/div&gt;
-              &lt;div class=&quot;hw2-break-line&quot;&gt;&lt;span&gt;LUNCH + SESSIONS&lt;/span&gt;&lt;/div&gt;
+              &lt;div class=&quot;hw2-break-line&quot;&gt;&lt;span&gt;SESSIONS&lt;/span&gt;&lt;/div&gt;
             &lt;/div&gt;
           `;
         }
