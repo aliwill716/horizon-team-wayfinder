@@ -1326,7 +1326,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       });
     }
 
-    function makeSlots(area, start) {
+    function makeSlots(area, start, team, blockIndex) {
       if (area === &#x27;Picking&#x27;) {
         return pickingBySquad[selectedSquad].map(assignment =&gt; ({
           start: start + assignment.offset,
@@ -1338,15 +1338,31 @@ html&gt;body{padding:0}&lt;/style&gt;
       }
       if (area === &#x27;Packing&#x27;) {
         const events = selectedRelay === &#x27;A&#x27; ? [&#x27;MIB&#x27;, &#x27;Direct Pack&#x27;] : [&#x27;Direct Pack&#x27;, &#x27;MIB&#x27;];
+        if (blockIndex === 1) {
+          return [
+            { start, end: start + 8, area: &#x27;Packing&#x27;, event: &#x27;Transition&#x27;, transition: true },
+            { start: start + 8, end: start + 18, area: &#x27;Packing&#x27;, event: events[0], transition: false },
+            { start: start + 18, end: start + 28, area: &#x27;Packing&#x27;, event: events[1], transition: false }
+          ];
+        }
         return [
           { start, end: start + 10, area: &#x27;Packing&#x27;, event: events[0], transition: false },
-          { start: start + 10, end: start + 20, area: &#x27;Packing&#x27;, event: events[1], transition: false },
-          { start: start + 20, end: start + 28, area: &#x27;Packing&#x27;, event: &#x27;Transition&#x27;, transition: true }
+          { start: start + 10, end: start + 18, area: &#x27;Packing&#x27;, event: &#x27;Transition&#x27;, transition: true },
+          { start: start + 18, end: start + 28, area: &#x27;Packing&#x27;, event: events[1], transition: false }
         ];
       }
       return [
         { start, end: start + 28, area: &#x27;Conveyor&#x27;, event: &#x27;Conveyor&#x27;, transition: false, wide: true }
       ];
+    }
+
+    function blockStartFor(team, blockIndex) {
+      const area = team.route[blockIndex];
+      const followsPacking = blockIndex &gt; 0 &amp;&amp; team.route[blockIndex - 1] === &#x27;Packing&#x27;;
+      if (area === &#x27;Conveyor&#x27; &amp;&amp; followsPacking &amp;&amp; blockIndex === 1) {
+        return selectedWave === &#x27;A&#x27; ? 645 : 705;
+      }
+      return blockStarts[selectedWave][blockIndex];
     }
 
     function slotMarkup(slot) {
@@ -1376,8 +1392,8 @@ html&gt;body{padding:0}&lt;/style&gt;
       root.querySelector(&#x27;#hw2-team-name&#x27;).textContent = `${team.name.toUpperCase()} TEAM`;
       root.querySelector(&#x27;#hw2-assignment&#x27;).textContent = `Wave ${selectedWave} · Squad ${selectedSquad} · Relay ${selectedRelay}`;
       schedule.innerHTML = team.route.map((area, blockIndex) =&gt; {
-        const start = blockStarts[selectedWave][blockIndex];
-        const slots = makeSlots(area, start);
+        const start = blockStartFor(team, blockIndex);
+        const slots = makeSlots(area, start, team, blockIndex);
         return `
           &lt;section class=&quot;hw2-rotation&quot; style=&quot;--hw2-zone:${areaColors[area]}&quot;&gt;
             &lt;div class=&quot;hw2-rotation-heading&quot;&gt;
