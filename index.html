@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>Horizon 2026 · Warehouse Olympics Team Wayfinder</title>
+<title>Horizon Team Wayfinder</title>
 <style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
 </head>
 <body>
-<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Horizon 2026 · Warehouse Olympics Team Wayfinder" srcdoc="&lt;!doctype html&gt;
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Horizon Team Wayfinder" srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
 &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
 &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
-&lt;title&gt;Horizon 2026 · Warehouse Olympics Team Wayfinder&lt;/title&gt;
+&lt;title&gt;Horizon Team Wayfinder&lt;/title&gt;
 &lt;style&gt;:root {
   color-scheme: light dark;
   background-color: var(
@@ -1115,6 +1115,30 @@ html&gt;body{padding:0}&lt;/style&gt;
     margin-top: 1rem;
   }
 
+  #horizon-team-wayfinder-v2 .hw2-break {
+    display: grid;
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    gap: .85rem;
+    align-items: center;
+    color: var(--hw2-muted);
+  }
+
+  #horizon-team-wayfinder-v2 .hw2-break-line {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    letter-spacing: .12em;
+    white-space: nowrap;
+  }
+
+  #horizon-team-wayfinder-v2 .hw2-break-line::before,
+  #horizon-team-wayfinder-v2 .hw2-break-line::after {
+    content: &#x27;&#x27;;
+    height: 1px;
+    flex: 1 1 auto;
+    background: var(--hw2-line);
+  }
+
   #horizon-team-wayfinder-v2 .hw2-rotation {
     display: grid;
     grid-template-columns: 8.5rem minmax(0, 1fr);
@@ -1217,6 +1241,14 @@ html&gt;body{padding:0}&lt;/style&gt;
       grid-template-columns: 1fr;
     }
 
+    #horizon-team-wayfinder-v2 .hw2-break {
+      grid-template-columns: 1fr;
+    }
+
+    #horizon-team-wayfinder-v2 .hw2-break &gt; :first-child {
+      display: none;
+    }
+
     #horizon-team-wayfinder-v2 .hw2-rotation-heading {
       align-items: flex-start;
       text-align: left;
@@ -1272,6 +1304,10 @@ html&gt;body{padding:0}&lt;/style&gt;
       A: [610, 638, 855],
       B: [670, 698, 890]
     };
+    const blockEnds = {
+      A: [635, 660, 880],
+      B: [695, 720, 915]
+    };
     const areaColors = {
       Picking: &#x27;#008aff&#x27;,
       Packing: &#x27;#ff7a35&#x27;,
@@ -1297,6 +1333,12 @@ html&gt;body{padding:0}&lt;/style&gt;
     let selectedWave = &#x27;A&#x27;;
     let selectedSquad = 1;
     let selectedRelay = &#x27;A&#x27;;
+
+    const packingStationAssignments = {
+      1: { A: { MIB: &#x27;TBD&#x27;, &#x27;Direct Pack&#x27;: &#x27;TBD&#x27; }, B: { MIB: &#x27;TBD&#x27;, &#x27;Direct Pack&#x27;: &#x27;TBD&#x27; } },
+      2: { A: { MIB: &#x27;TBD&#x27;, &#x27;Direct Pack&#x27;: &#x27;TBD&#x27; }, B: { MIB: &#x27;TBD&#x27;, &#x27;Direct Pack&#x27;: &#x27;TBD&#x27; } },
+      3: { A: { MIB: &#x27;TBD&#x27;, &#x27;Direct Pack&#x27;: &#x27;TBD&#x27; }, B: { MIB: &#x27;TBD&#x27;, &#x27;Direct Pack&#x27;: &#x27;TBD&#x27; } }
+    };
 
     function formatTime(totalMinutes) {
       const hour24 = Math.floor(totalMinutes / 60);
@@ -1338,21 +1380,29 @@ html&gt;body{padding:0}&lt;/style&gt;
       }
       if (area === &#x27;Packing&#x27;) {
         const events = selectedRelay === &#x27;A&#x27; ? [&#x27;MIB&#x27;, &#x27;Direct Pack&#x27;] : [&#x27;Direct Pack&#x27;, &#x27;MIB&#x27;];
+        const eventSlot = (slotStart, slotEnd, event) =&gt; ({
+          start: slotStart,
+          end: slotEnd,
+          area: &#x27;Packing&#x27;,
+          event,
+          station: packingStationAssignments[selectedSquad][selectedRelay][event],
+          transition: false
+        });
         if (blockIndex === 1) {
           return [
-            { start, end: start + 8, area: &#x27;Packing&#x27;, event: &#x27;Transition&#x27;, transition: true },
-            { start: start + 8, end: start + 18, area: &#x27;Packing&#x27;, event: events[0], transition: false },
-            { start: start + 18, end: start + 28, area: &#x27;Packing&#x27;, event: events[1], transition: false }
+            { start, end: start + 8, area: &#x27;Packing&#x27;, event: &#x27;Transition&#x27;, station: &#x27;—&#x27;, transition: true },
+            eventSlot(start + 8, start + 18, events[0]),
+            eventSlot(start + 18, start + 28, events[1])
           ];
         }
         return [
-          { start, end: start + 10, area: &#x27;Packing&#x27;, event: events[0], transition: false },
-          { start: start + 10, end: start + 18, area: &#x27;Packing&#x27;, event: &#x27;Transition&#x27;, transition: true },
-          { start: start + 18, end: start + 28, area: &#x27;Packing&#x27;, event: events[1], transition: false }
+          eventSlot(start, start + 10, events[0]),
+          { start: start + 10, end: start + 15, area: &#x27;Packing&#x27;, event: &#x27;Transition&#x27;, station: &#x27;—&#x27;, transition: true },
+          eventSlot(start + 15, start + 25, events[1])
         ];
       }
       return [
-        { start, end: start + 28, area: &#x27;Conveyor&#x27;, event: &#x27;Conveyor&#x27;, transition: false, wide: true }
+        { start, end: blockEnds[selectedWave][blockIndex], area: &#x27;Conveyor&#x27;, event: &#x27;Conveyor&#x27;, transition: false, wide: true }
       ];
     }
 
@@ -1381,6 +1431,12 @@ html&gt;body{padding:0}&lt;/style&gt;
               &lt;span class=&quot;hw2-field-label&quot;&gt;EVENT&lt;/span&gt;
               &lt;span class=&quot;hw2-field-value-event&quot;&gt;${slot.event}&lt;/span&gt;
             &lt;/div&gt;
+            ${slot.station !== undefined ? `
+              &lt;div class=&quot;hw2-slot-field&quot;&gt;
+                &lt;span class=&quot;hw2-field-label&quot;&gt;STATION&lt;/span&gt;
+                &lt;span&gt;${slot.station}&lt;/span&gt;
+              &lt;/div&gt;
+            ` : &#x27;&#x27;}
           &lt;/div&gt;
         &lt;/article&gt;
       `;
@@ -1394,7 +1450,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       schedule.innerHTML = team.route.map((area, blockIndex) =&gt; {
         const start = blockStartFor(team, blockIndex);
         const slots = makeSlots(area, start, team, blockIndex);
-        return `
+        const rotation = `
           &lt;section class=&quot;hw2-rotation&quot; style=&quot;--hw2-zone:${areaColors[area]}&quot;&gt;
             &lt;div class=&quot;hw2-rotation-heading&quot;&gt;
               &lt;span class=&quot;hw2-rotation-label&quot;&gt;ROTATION ${blockIndex + 1}&lt;/span&gt;
@@ -1405,6 +1461,15 @@ html&gt;body{padding:0}&lt;/style&gt;
             &lt;/div&gt;
           &lt;/section&gt;
         `;
+        if (blockIndex === 1) {
+          return `${rotation}
+            &lt;div class=&quot;hw2-break&quot; aria-label=&quot;Lunch and summit sessions break&quot;&gt;
+              &lt;div&gt;&lt;/div&gt;
+              &lt;div class=&quot;hw2-break-line&quot;&gt;&lt;span&gt;LUNCH + SESSIONS&lt;/span&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          `;
+        }
+        return rotation;
       }).join(&#x27;&#x27;);
     }
 
